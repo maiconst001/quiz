@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <main role="main" id="app">
+        <div class="quest">
+            <h1>{{ ask[the_quest].ask }}</h1>
+        </div>
+        <div class="answers">
+            <div class="fruit-block" :style="{'order': _order[0]}" @click="changeColor($event.srcElement)">{{ worlds[gerate()] }}</div>
+            <div class="fruit-block" :style="{'order': _order[1]}" @click="changeColor($event.srcElement)">{{ worlds[gerate()] }}</div>
+            <div class="fruit-block" :style="{'order': _order[2]}" @click="changeColor($event.srcElement)">{{ask[the_quest].answer}}</div>
+            <div class="fruit-block" :style="{'order': _order[3]}" @click="changeColor($event.srcElement)">{{ worlds[gerate()] }}</div>
+        </div>
+    </main>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./scripts/script.js" async></script>
+</html>

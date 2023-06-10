@@ -50,6 +50,18 @@ def obter_perguntas():
 
 
 
+@app.route('/delete/<int:pergunta_id>')
+def deletar_pergunta(pergunta_id):
+    pergunta = Pergunta.query.get(pergunta_id)
+    if not pergunta:
+        return jsonify({'message': 'Pergunta não encontrada.'}), 404
+    
+    db.session.delete(pergunta)
+    db.session.commit()
+    
+    return jsonify({'message': 'Pergunta deletada com sucesso.'}), 200
+
+
 
 with app.app_context():
     db.create_all()

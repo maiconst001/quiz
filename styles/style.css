@@ -7,59 +7,104 @@
 
 main {
     width: 100%;
-}
-
-.answers {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    padding: 10px;
-    justify-content: center;
-}
-
-.tpmain {
-    order: -1;
-}
-
-.fruit-block {
-    height: 200px;
-    background-color: rgb(209, 10, 10);
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    text-align: center;
-    margin-bottom: 10px;
-    animation: fadeIn 0.5s;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 25px;
-    width: 45%;
-    margin: 10px;
-    justify-self: center;
+    padding: 50px;
+    flex-direction: column;
+    background-color: #222;
+    height: 100vh;
+    color: white;
+    justify-content: center;
 }
-
-@keyframes fadeIn {
-from {
-    transform: rotate(100deg);
-}
-
-}
-
-.fruit-block:hover {
-cursor: pointer;
-}
-
-.green {
-background-color: green !important;
+h1 {
+    text-align: center;
 }
 
 .quest {
+    padding: 0px 50px 50px 20px;
+}
+
+.answer {
+    padding: 40px;
     width: 100%;
-    padding: 70px 30px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+button {
+    width: 80%;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid white;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+button:active {
+    transform: scale(.95);
+}
+
+.yes {
+    background-color: rgb(24, 201, 24);
+}
+
+.no {
+    background-color: #da0d0d;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 2px 13px black;
+    border-radius: 4px;
+}
+
+
+.aline-card {
+    border-radius: 4px; 
     display: flex;
     justify-content: center;
-    font-size: 30px;
-    text-transform: uppercase;
+    align-items: center;
+    height: 100%;
+}
+
+.card.flipped .card-inner {
+transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+width: 100%;
+height: 100%;
+position: absolute;
+backface-visibility: hidden;
+}
+
+.card-front {
+background-color: #9e2046;
+}
+
+.card-back {
+background-color: #549c19;
+transform: rotateY(180deg);
+}
+
+.card-content {
+padding: 20px;
+text-align: center;
 }

@@ -12,13 +12,26 @@
 <body>
     <main role="main" id="app">
         <div class="quest">
-            <h1>{{ ask[the_quest].ask }}</h1>
+            <h1>Do you know this world ? </h1>
         </div>
-        <div class="answers">
-            <div class="fruit-block" :style="{'order': _order[0]}" @click="changeColor($event.srcElement)">{{ worlds[gerate()] }}</div>
-            <div class="fruit-block" :style="{'order': _order[1]}" @click="changeColor($event.srcElement)">{{ worlds[gerate()] }}</div>
-            <div class="fruit-block" :style="{'order': _order[2]}" @click="changeColor($event.srcElement)">{{ask[the_quest].answer}}</div>
-            <div class="fruit-block" :style="{'order': _order[3]}" @click="changeColor($event.srcElement)">{{ worlds[gerate()] }}</div>
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-inner">
+                <div class="card-front aline-card">
+                    <div class="card-content">
+                    <h1>{{ ask[the_quest].ask }}</h1>
+                    </div>
+                </div>
+                <div class="card-back aline-card">
+                    <div class="card-content">
+                    <h1>{{ ask[the_quest].answer }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="answer">
+            <button @click='removethis' class="btn yes">YES</button>
+            <button @click="nextworld" class="btn btn-primary no">NO</button>
+
         </div>
     </main>
 </body>

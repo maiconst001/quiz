@@ -3,7 +3,6 @@ var app = new Vue({
     el: '#app',
     mounted: async function () {
         let data = await axios.get('https://morte1506u.pythonanywhere.com/perguntas')
-        console.log(data.data)
         this.ask = data.data
 
         this._order = []
@@ -44,6 +43,47 @@ var app = new Vue({
 
     methods: {
         
+        removethis: function () {
+            var the_id = this.ask[this.the_quest].id 
+
+            if (this.ask.length == 1) {
+                alert('fim')
+                this.the_quest = 0
+            }else {
+                document.querySelector('.card').classList.remove('flipped')
+
+                setTimeout(() => {
+                    this.delete(the_id)
+                    this.ask.splice(this.the_quest, this.the_quest+1)
+                    this.nextworld()
+                }, 100);
+                
+            }
+        },
+
+        nextworld: function () {
+            var x = this.the_quest
+            
+            document.querySelector('.card').classList.remove('flipped')
+            while ((x == this.the_quest) && this.ask.length > 1) {
+                x = Math.round(Math.random() * (this.ask.length -1));
+
+                if (this.the_quest != x) {
+                    setTimeout(() => {
+                        
+                    this.the_quest = x
+                    }, 100);
+                    break;
+                }
+            }
+        },
+
+        delete: function (id) {
+          axios.get('https://morte1506u.pythonanywhere.com/delete/'+id)  
+        },
+
+
+        // outher idea
         gerate : function() {
             return Math.floor(Math.random() *  + this.worlds.length);
         },

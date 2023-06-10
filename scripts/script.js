@@ -7,10 +7,14 @@ var app = new Vue({
 
         this._order = []
 
-        this._order.push(this.order())
-        this._order.push(this.order())
-        this._order.push(this.order())
-        this._order.push(this.order())
+        //this._order.push(this.order())
+        //this._order.push(this.order())
+        //this._order.push(this.order())
+        //this._order.push(this.order())
+
+        this.nextworld()
+
+
     },
 
 
@@ -54,7 +58,7 @@ var app = new Vue({
 
                 setTimeout(() => {
                     this.delete(the_id)
-                    this.ask.splice(this.the_quest, this.the_quest+1)
+                    this.ask.splice(this.the_quest, 1)
                     this.nextworld()
                 }, 100);
                 

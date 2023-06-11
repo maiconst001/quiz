@@ -69,7 +69,16 @@ var app = new Vue({
             var x = this.the_quest
             
             document.querySelector('.card').classList.remove('flipped')
-            while ((x == this.the_quest) && this.ask.length > 1) {
+
+            setTimeout(() => {                    
+                
+                var data = this.ask.slice(0, 1)[0]
+                this.ask.splice(0, 1)[0]
+                this.ask.push(data)
+
+            }, 100)
+
+            /*while ((x == this.the_quest) && this.ask.length > 1) {
                 x = Math.round(Math.random() * (this.ask.length -1));
 
                 if (this.the_quest != x) {
@@ -79,7 +88,7 @@ var app = new Vue({
                     }, 100);
                     break;
                 }
-            }
+            }*/
         },
 
         delete: function (id) {
